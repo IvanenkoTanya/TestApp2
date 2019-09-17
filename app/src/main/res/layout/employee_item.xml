@@ -11,28 +11,28 @@
 
     <TextView
         android:id="@+id/employee_name_text"
-        android:text="Name: "
+        android:text="@string/name"
         style="@style/employee_text_item"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/employee_age_text"
-        android:text="Age: "
+        android:text="@string/age"
         style="@style/employee_text_item"
         app:layout_constraintTop_toBottomOf="@id/employee_name_text"
         app:layout_constraintStart_toStartOf="@id/employee_name_text"/>
 
     <TextView
         android:id="@+id/employee_phone_text"
-        android:text="Phone: "
+        android:text="@string/phone"
         style="@style/employee_text_item"
         app:layout_constraintTop_toBottomOf="@id/employee_age_text"
         app:layout_constraintStart_toStartOf="@id/employee_age_text"/>
 
     <TextView
         android:id="@+id/employee_gender_text"
-        android:text="Gender: "
+        android:text="@string/gender"
         style="@style/employee_text_item"
         app:layout_constraintTop_toBottomOf="@id/employee_phone_text"
         app:layout_constraintStart_toStartOf="@id/employee_phone_text"/>

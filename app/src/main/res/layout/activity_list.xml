@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/empty_list_text"
-        android:text="Nothing to show"
+        android:text="@string/empty_list"
         android:textSize="22sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
 
     <Button
         android:id="@+id/add_new_btn_list_activity"
-        android:text="Add new"
+        android:text="@string/add_new_btn"
         style="@style/btn"
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="250dp"

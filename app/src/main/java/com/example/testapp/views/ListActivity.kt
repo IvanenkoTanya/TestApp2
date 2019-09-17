@@ -47,14 +47,7 @@ class ListActivity : AppCompatActivity(){
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(requestCode == 1){
             db = DatabaseHandler(this)
-            employees = db.readData()
-            adapter.update(employees)
-            if(employees.isNotEmpty()){
-                empty_list_text.visibility = View.GONE
-            }
-            else{
-                empty_list_text.visibility = View.VISIBLE
-            }
+            adapter.update(db.readData())
         }
     }
 }

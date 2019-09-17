@@ -1,7 +1,6 @@
 package com.example.testapp.views
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -21,17 +20,15 @@ class NewRecordActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
         super.onCreate(savedInstanceState)
         setContentView(R.layout.new_record_activity)
 
-        var genderSpinnerList = arrayOf("MALE", "FEMALE")
+        var gender_spinner_items = arrayOf("MALE", "FEMALE")
         employee_gender_selector!!.setOnItemSelectedListener(this)
-        val genderSpinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, genderSpinnerList)
-        genderSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        employee_gender_selector!!.setAdapter(genderSpinnerAdapter)
+        val gender_spinner_adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, gender_spinner_items)
+        gender_spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        employee_gender_selector!!.setAdapter(gender_spinner_adapter)
 
         save_btn.setOnClickListener {
-            Log.d("NewRecordActivity", "Employee name is: ${employee.age}")
             if(employee_name_edittext.text.toString().isNotEmpty()) {
                 employee.name = employee_name_edittext.text.toString()
-                Log.d("NewRecordActivity", "Employee's name is: ${employee.age}")
             }
             else {
                 Toast.makeText(this, "Please enter the name", Toast.LENGTH_SHORT).show()
@@ -41,7 +38,6 @@ class NewRecordActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
             val age = Regex(pattern = """\d{2}""").matchEntire(employee_age_edittext.text)?.value
             if(age != null) {
                 employee.age = age.toInt()
-                Log.d("NewRecordActivity", "Employee's age is: ${employee.age}")
             }
             else {
                 Toast.makeText(this, "Please enter the correct age", Toast.LENGTH_SHORT).show()
@@ -51,15 +47,14 @@ class NewRecordActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
             val phone = Regex(pattern = """\d{12}""").matchEntire(employee_phone_edittext.text)?.value
             if(phone != null) {
                 employee.phone = phone
-                Log.d("NewRecordActivity", "Employee's phone is: ${employee.phone}")
             }
             else {
                 Toast.makeText(this, "Please enter the phone as a format: 380991346578", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val db = DatabaseHandler(this)
-            if(db.insertData(employee)) {
+            val database = DatabaseHandler(this)
+            if(database.insertData(employee)) {
                 employee_name_edittext.text.clear()
                 employee_age_edittext.text.clear()
                 employee_phone_edittext.text.clear()
@@ -70,11 +65,9 @@ class NewRecordActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
         when(position){
             0 -> {
                 employee.gender = Gender.MALE
-                Log.d("NewRecordActivity", "Employee's gender is: ${Gender.MALE}")
             }
             1 -> {
                 employee.gender = Gender.FEMALE
-                Log.d("NewRecordActivity", "Employee's gender is: ${Gender.FEMALE}")
             }
             else -> {
                 employee.gender = Gender.MALE

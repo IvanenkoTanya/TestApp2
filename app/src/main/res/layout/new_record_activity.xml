@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/employee_name_text_add_activity"
-        android:text="Name:"
+        android:text="@string/name"
         style="@style/employee_text_add_new"
         app:layout_constraintTop_toTopOf="@id/employee_name_edittext"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
 
     <TextView
         android:id="@+id/employee_age_text_add_new_activity"
-        android:text="Age:"
+        android:text="@string/age"
         style="@style/employee_text_add_new"
         app:layout_constraintTop_toTopOf="@id/employee_age_edittext"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
 
     <TextView
         android:id="@+id/employee_phone_text_add_new_activity"
-        android:text="Phone:"
+        android:text="@string/phone"
         style="@style/employee_text_add_new"
         app:layout_constraintTop_toTopOf="@id/employee_phone_edittext"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
 
     <TextView
         android:id="@+id/employee_gender_text_add_new_activity"
-        android:text="Gender:"
+        android:text="@string/gender"
         style="@style/employee_text_add_new"
         app:layout_constraintTop_toTopOf="@id/employee_gender_selector"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +73,7 @@
 
     <Button
         android:id="@+id/save_btn"
-        android:text="Save"
+        android:text="@string/save_btn"
         style="@style/btn"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="250dp"
